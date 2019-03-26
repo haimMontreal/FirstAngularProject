@@ -1,19 +1,13 @@
-
-<div class="container">
-  <div>
-
-    <h2>TV project</h2>
-  </div>
-
-  <div>
-<form onsubmit="myfunction()">
-  <input type="text">
- <input type="submit">
-
-
-</form>
-  </div>
+<h2>GET</h2>
+Name :<input type="text" (keyup)="onNameKeyUp($event)">
+<button (click)="getProfile()">Get Profile</button>
+<br>
+<div *ngIf="found">
+  <span>Your input is{{enter}}</span>
+  <span>Your input is{{id}}</span>
+  <span>Your input is{{name}}</span>
+  <span>Your input is{{url}}</span>
 </div>
 
 
-<app-api></app-api>
+
