@@ -12,13 +12,14 @@ export class AppComponent {
   id: number;
   name: string;
   url: string;
+  images: string;
   found: boolean;
 
   constructor(private httpClient: HttpClient) {
   }
 
   onNameKeyUp(event: any) {
-    this.name = event.target.value;
+    this.enter = event.target.value;
     this.found = false;
   }
 
@@ -27,6 +28,10 @@ export class AppComponent {
       .subscribe(
         (data: any[]) => {
           if (data.length) {
+            this.id = data[0].show.id;
+            this.name = data[0].show.name;
+            this.url = data[0].show.url;
+            this.images = data[0].show.image.medium;
             this.found = true;
           }
           else {

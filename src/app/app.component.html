@@ -3,10 +3,11 @@ Name :<input type="text" (keyup)="onNameKeyUp($event)">
 <button (click)="getProfile()">Get Profile</button>
 <br>
 <div *ngIf="found">
-  <span>Your input is{{enter}}</span>
-  <span>Your input is{{id}}</span>
-  <span>Your input is{{name}}</span>
-  <span>Your input is{{url}}</span>
+  <span>Your input is{{enter}}</span><br>
+  <span>The id is{{id}}</span><br>
+  <span>The name is{{name}}</span><br>
+  <span>The url is{{url}}</span><br>
+  <span><img src="{{images}}"></span><br>
 </div>
 
 
