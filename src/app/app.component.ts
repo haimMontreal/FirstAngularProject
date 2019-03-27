@@ -9,11 +9,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   enter: string = '';
-  id: number;
-  name: string;
-  url: string;
-  images: string;
-  found: boolean;
+  id: number=[];
+  name: string=[];
+  url: string=[];
+  images: string=[];
+  found: boolean=[];
 
   constructor(private httpClient: HttpClient) {
   }
@@ -28,11 +28,13 @@ export class AppComponent {
       .subscribe(
         (data: any[]) => {
           if (data.length) {
-            this.id = data[0].show.id;
-            this.name = data[0].show.name;
-            this.url = data[0].show.url;
-            this.images = data[0].show.image.medium;
+            for (var i=0; i<=data.length; i++) {
+            this.id.unshift(data[i].show.id);
+            this.name.unshift(data[i].show.name);
+            this.url.unshift(data[i].show.url);
+            this.images.unshift(data[i].show.image.medium);
             this.found = true;
+            }
           }
           else {
             this.found = true;
@@ -42,6 +44,7 @@ export class AppComponent {
       )
   }
 }
+
 
 
 

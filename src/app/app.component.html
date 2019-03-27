@@ -1,13 +1,15 @@
 <h2>GET</h2>
 Name :<input type="text" (keyup)="onNameKeyUp($event)">
-<button (click)="getProfile()">Get Profile</button>
+<button (click)="getProfile()">Get Movies</button>
 <br>
 <div *ngIf="found">
-  <span>Your input is{{enter}}</span><br>
-  <span>The id is{{id}}</span><br>
-  <span>The name is{{name}}</span><br>
-  <span>The url is{{url}}</span><br>
-  <span><img src="{{images}}"></span><br>
+  <ul>
+
+ <!-- <li *ngFor="let hero of id">id is{{ hero }}</li>-->
+  <li *ngFor="let hero of name">{{hero}}</li>
+ <!-- <li *ngFor="let hero of url">url is{{hero}}</li>-->
+  <!--<li *ngFor="let hero of images"><img src="{{hero}}"></li>-->
+  </ul>
 </div>
 
 
