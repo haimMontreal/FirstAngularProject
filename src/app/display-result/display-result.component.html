@@ -1,0 +1,12 @@
+
+Name :<input type="text" (keyup)="onNameKeyUp($event)">
+<button (click)="getProfile()">Get Movies</button>
+<div *ngIf="found">
+  <ul>
+
+    <!-- <li *ngFor="let hero of id">id is{{ hero }}</li>-->
+    <li *ngFor="let hero of name">{{hero}}</li>
+    <!-- <li *ngFor="let hero of url">url is{{hero}}</li>-->
+    <!--<li *ngFor="let hero of images"><img src="{{hero}}"></li>-->
+  </ul>
+</div>
