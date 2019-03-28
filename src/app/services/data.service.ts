@@ -4,4 +4,8 @@ export class DataService {
   name: string[]=[];
   url: string[]=[];
   images: string[]=[];
+
+
 }
+
+
