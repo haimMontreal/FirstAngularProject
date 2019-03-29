@@ -3,8 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import {DisplayResultComponent} from './display-result/display-result.component';
 
 
+
 const routes: Routes = [
-  {path: 'search', component: DisplayResultComponent},
+  {path: 'search/:id', component: DisplayResultComponent}
   //{path: '**', component: notFound}
 ];
 
@@ -13,5 +14,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
 
 
