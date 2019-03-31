@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {DataService} from '../services/data.service';
+import {AppComponent} from '../app.component';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class DisplayResultComponent {
 
 
 
-  constructor(private dataService: DataService){
+  constructor(private dataService: DataService, private appComponent: AppComponent){
     /*
     this.idDisplay= this.dataService.id;
     this.nameDisplay= this.dataService.name;
