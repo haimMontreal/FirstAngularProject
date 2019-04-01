@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {DataService} from '../../api/data.service';
-import {AppComponent} from '../app.component';
 
 
 @Component({
@@ -8,27 +8,26 @@ import {AppComponent} from '../app.component';
   templateUrl: './display-result.component.html',
   styleUrls: ['./display-result.component.sass']
 })
-export class DisplayResultComponent {
+export class DisplayResultComponent implements OnInit {
 
+  query: string;
+  shows: any;
 
+  constructor(private dataService: DataService,
+              private route: ActivatedRoute) {}
 
-  constructor(private dataService: DataService, private appComponent: AppComponent){
-    /*
-    this.idDisplay= this.dataService.id;
-    this.nameDisplay= this.dataService.name;
-    this.urlDisplay= this.dataService.url;
-    this.imagesDisplay= this.dataService.images;
-    this.foundDisplay= this.dataService.found;
-    */
-
+  ngOnInit(): void {
+    this.route.paramMap.subscribe( (params) => {
+        this.query = params.get('id');
+        this.getShows();
+      }
+    );
   }
-  idDisplay: number[]=this.dataService.id;
-  nameDisplay: string[]=this.dataService.name;
-  urlDisplay: string[]=this.dataService.url;
-  imagesDisplay: string[]=this.dataService.images;
-  statusDisplay: string[]=this.dataService.status;
-  premieredDisplay: string[]=this.dataService.premiered;
-  foundDisplay: boolean = this.dataService.found;
 
-
+  getShows(): void {
+    this.dataService.getQuery(this.query).subscribe((results) => {
+      this.shows = results;
+      console.log(this.shows);
+    });
+  }
 }

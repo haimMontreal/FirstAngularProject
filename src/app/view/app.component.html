@@ -1,6 +1,8 @@
-<h3>Welcome to the TV show database</h3>
-Name :<input type="text" (keyup)="onNameKeyUp($event)">
-<button (click)="getMovies()">validate your data</button>
-<button routerLink="search">Get Movies</button>
+<nav>
+  <h3>Welcome to the tv Database!</h3>
+  Name :<input type="text" [(ngModel)]="query" name="name" placeholder="enter show or movie">
+  <button routerLink="/search/{{query}}">search</button>
+
+</nav>
 
 <router-outlet></router-outlet>
