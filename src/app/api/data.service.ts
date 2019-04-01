@@ -1,4 +1,4 @@
-import {AppComponent} from '../app.component';
+import {AppComponent} from '../view/app.component';
 
 
 export class DataService {
@@ -7,8 +7,9 @@ export class DataService {
   name: string[];
   url: string[];
   images: string[];
+  status: string[];
+  premiered: string[];
   found: boolean;
 
 
 }
-

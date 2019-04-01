@@ -4,9 +4,10 @@ import { NgModule } from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http';
-import {DataService} from './services/data.service';
+import {DataService} from '../api/data.service';
 import { DisplayResultComponent } from './display-result/display-result.component';
 import {Routes, RouterModule} from '@angular/router';
+
 
 const appRoutes: Routes = [
   {path: 'search', component: DisplayResultComponent}
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [
     DataService
@@ -30,4 +31,3 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

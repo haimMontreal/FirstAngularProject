@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {DataService} from './services/data.service';
+import {DataService} from '../api/data.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,8 @@ export class AppComponent implements OnInit{
   name: string[]=[];
   url: string[]=[];
   images: string[]=[];
+  status: string[]=[];
+  premiered: string[]=[];
   found: boolean;
 
 
@@ -26,7 +28,7 @@ export class AppComponent implements OnInit{
 
 
 
-  getProfile() {
+  getMovies() {
     console.log(this.id);
     this.httpClient.get(`http://api.tvmaze.com/search/shows?q=${this.enter}`)
       .subscribe(
@@ -36,17 +38,23 @@ export class AppComponent implements OnInit{
             this.name=[]=[];
             this.url=[]=[];
             this.images=[]=[];
+            this.status=[]=[];
+            this.premiered=[]=[];
             console.log(this.id);
             for (var i=0; i<=data.length; i++) {
               this.id.push(data[i].show.id);
               this.name.push(data[i].show.name);
               this.url.push(data[i].show.url);
               this.images.push(data[i].show.image.medium);
+              this.status.push(data[i].show.status);
+              this.premiered.push(data[i].show.premiered);
               this.found = true;
               this.dataService.id=this.id;
               this.dataService.name= this.name;
               this.dataService.url = this.url;
               this.dataService.images = this.images;
+              this.dataService.status = this.status;
+              this.dataService.premiered = this.premiered;
               this.dataService.found = this.found;
               console.log(this.dataService.id);
             }
@@ -68,8 +76,6 @@ export class AppComponent implements OnInit{
 
 
 }
-
-
 
 
 

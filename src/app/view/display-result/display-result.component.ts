@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {DataService} from '../services/data.service';
+import {DataService} from '../../api/data.service';
 import {AppComponent} from '../app.component';
 
 
@@ -26,6 +26,8 @@ export class DisplayResultComponent {
   nameDisplay: string[]=this.dataService.name;
   urlDisplay: string[]=this.dataService.url;
   imagesDisplay: string[]=this.dataService.images;
+  statusDisplay: string[]=this.dataService.status;
+  premieredDisplay: string[]=this.dataService.premiered;
   foundDisplay: boolean = this.dataService.found;
 
 
