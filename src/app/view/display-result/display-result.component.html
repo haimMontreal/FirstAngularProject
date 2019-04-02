@@ -7,10 +7,13 @@
       <mat-panel-description>
         {{show.show.premiered}}
       </mat-panel-description>
+      <mat-panel-description>
+        {{show.show.status}}
+      </mat-panel-description>
     </mat-expansion-panel-header>
-    <!--here goes all hidden html only shows when panels is open-->
+    <!-- only shows when panels is open-->
     <img [src]="show.show.image.medium">
     <span [innerHTML]="show.show.summary"></span>
-    <button routerLink="/seasons/{{show.show.id}}">Details</button>
+    <button routerLink="/episodes/{{show.show.id}}">Details</button>
   </mat-expansion-panel>
 </mat-accordion>

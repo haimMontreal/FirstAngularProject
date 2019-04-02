@@ -1,3 +1,16 @@
-<p>
-  episodes works!
-</p>
+<mat-accordion *ngIf="seasons">
+  <mat-expansion-panel *ngFor="let season of seasons">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        season: {{season.number}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{season.premiered}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <!--only shows when panels is open-->
+    <span *ngIf="season.image"><img [src]="season.image.medium"></span>
+    <span [innerHTML]="season.summary"></span>
+    <button routerLink="/seasons/{{season.id}}">Details</button>
+  </mat-expansion-panel>
+</mat-accordion>
